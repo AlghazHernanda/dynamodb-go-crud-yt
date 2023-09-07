@@ -16,11 +16,14 @@ type Interface interface {}
 func NewAdapter(con *dynamodb.DynamoDB) Interface {}
 
 func (db *Database) Health() bool {
+	_, err := db.connection.ListTables(&dynamodb.ListTablesInput{})
+	return err == nil
 	
 }
 
 func (db *Database) FindAll{}
 
+//pake condition karena dia harus nyari 1 data
 func (db *Database) FindOne(condition map[string]interface{}, tableName string) (response *dynamodb.GetItemOutput, err error) {
 	conditionParsed, err := dynamodbattribute.MarshalMap(condition)
 	if err != nil {
@@ -45,5 +48,16 @@ func (db *Database) CreateOrUpdate(entity interface{}, tableName string) (respon
 	return db.connection.PutItem(input)
 }
 
-func (db *Database) Delete{}
+//pake condition karena dia harus nyari 1 data
+func (db *Database) Delete(condition map[string]interface{}, tableName string) (response *dynamodb.DeleteItemOutput, err error) {
+	conditionParsed, err := dynamodbattribute.MarshalMap(condition)
+	if err != nil {
+		return nil, err
+	}
+	input := &dynamodb.DeleteItemInput{
+		Key:       conditionParsed,
+		TableName: aws.String(tableName),
+	}
+	return db.connection.DeleteItem(input)
+}
 
