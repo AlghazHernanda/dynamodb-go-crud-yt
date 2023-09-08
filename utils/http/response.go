@@ -35,6 +35,11 @@ func (resp *response) sendResponse(w http.ResponseWriter, r *http.Request) {
 	log.Println(resp.string())
 }
 
+// 200
+func StatusOK(w http.ResponseWriter, r *http.Request, data interface{}) {
+	newResponse(data, http.StatusOK).sendResponse(w, r)
+}
+
 // 204
 func StatusNoContent()
 
