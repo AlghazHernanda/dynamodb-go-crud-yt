@@ -52,10 +52,15 @@ func StatusBadRequest(w http.ResponseWriter, r *http.Request, err error) {
 }
 
 // 404
-func StatusNotFound()
+func StatusNotFound(w http.ResponseWriter, r *http.Request, err error) {
+	data := map[string]interface{}{"error": err.Error()}
+	newResponse(data, http.StatusNotFound).sendResponse(w, r)
+}
 
 // 405
-func StatusMethodNotAllowed()
+func StatusMethodNotAllowed(w http.ResponseWriter, r *http.Request) {
+	newResponse(nil, http.StatusMethodNotAllowed).sendResponse(w, r)
+}
 
 // 409
 func StatusConflict()
