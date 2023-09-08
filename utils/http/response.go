@@ -41,7 +41,9 @@ func StatusOK(w http.ResponseWriter, r *http.Request, data interface{}) {
 }
 
 // 204
-func StatusNoContent()
+func StatusNoContent(w http.ResponseWriter, r *http.Request) {
+	newResponse(nil, http.StatusNoContent).sendResponse(w, r)
+}
 
 // 400
 func StatusBadRequest()
