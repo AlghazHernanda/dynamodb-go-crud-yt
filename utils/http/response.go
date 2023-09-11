@@ -63,7 +63,13 @@ func StatusMethodNotAllowed(w http.ResponseWriter, r *http.Request) {
 }
 
 // 409
-func StatusConflict()
+func StatusConflict(w http.ResponseWriter, r *http.Request, err error) {
+	data := map[string]interface{}{"error": err.Error()}
+	newResponse(data, http.StatusConflict).sendResponse(w, r)
+}
 
 // 500
-func StatusInternalServerError()
+func StatusInternalServerError(w http.ResponseWriter, r *http.Request, err error) {
+	data := map[string]interface{}{"error": err.Error()}
+	newResponse(data, http.StatusInternalServerError).sendResponse(w, r)
+}
