@@ -33,6 +33,7 @@ func (b *Base) SetUpdatedAt() {
 	b.UpdatedAt = time.Now()
 }
 
+// get time format
 func GetTimeFormat() string {
 	return "2006-01-02T15:04:05-0700"
 }
