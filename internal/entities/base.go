@@ -29,6 +29,7 @@ func (b *Base) SetCreatedAt() {
 	b.CreatedAt = time.Now()
 }
 
+// setUpdatedAt
 func (b *Base) SetUpdatedAt() {
 	b.UpdatedAt = time.Now()
 }
