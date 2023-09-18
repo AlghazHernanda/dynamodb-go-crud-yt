@@ -1,5 +1,6 @@
 package rules
 
+//import dynamodb
 import (
 	"io"
 
