@@ -40,7 +40,7 @@ func StatusOK(w http.ResponseWriter, r *http.Request, data interface{}) {
 	newResponse(data, http.StatusOK).sendResponse(w, r)
 }
 
-// 204
+// status 204 204
 func StatusNoContent(w http.ResponseWriter, r *http.Request) {
 	newResponse(nil, http.StatusNoContent).sendResponse(w, r)
 }
