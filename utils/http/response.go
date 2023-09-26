@@ -45,7 +45,7 @@ func StatusNoContent(w http.ResponseWriter, r *http.Request) {
 	newResponse(nil, http.StatusNoContent).sendResponse(w, r)
 }
 
-// 400
+// StatusBadRequest 400
 func StatusBadRequest(w http.ResponseWriter, r *http.Request, err error) {
 	data := map[string]interface{}{"error": err.Error()}
 	newResponse(data, http.StatusBadRequest).sendResponse(w, r)
