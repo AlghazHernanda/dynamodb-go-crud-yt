@@ -51,7 +51,7 @@ func StatusBadRequest(w http.ResponseWriter, r *http.Request, err error) {
 	newResponse(data, http.StatusBadRequest).sendResponse(w, r)
 }
 
-// 404
+// StatusNotFound 404
 func StatusNotFound(w http.ResponseWriter, r *http.Request, err error) {
 	data := map[string]interface{}{"error": err.Error()}
 	newResponse(data, http.StatusNotFound).sendResponse(w, r)
