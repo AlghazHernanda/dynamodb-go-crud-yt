@@ -57,12 +57,12 @@ func StatusNotFound(w http.ResponseWriter, r *http.Request, err error) {
 	newResponse(data, http.StatusNotFound).sendResponse(w, r)
 }
 
-// 405
+// StatusMethodNotAllowed 405
 func StatusMethodNotAllowed(w http.ResponseWriter, r *http.Request) {
 	newResponse(nil, http.StatusMethodNotAllowed).sendResponse(w, r)
 }
 
-// 409
+// StatusConflict 409
 func StatusConflict(w http.ResponseWriter, r *http.Request, err error) {
 	data := map[string]interface{}{"error": err.Error()}
 	newResponse(data, http.StatusConflict).sendResponse(w, r)
