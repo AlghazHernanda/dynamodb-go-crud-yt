@@ -8,6 +8,7 @@ func PANIC(message string, err error) {
 	}
 }
 
+//log info
 func INFO(message string, data interface{}) {
 	log.Print(message, data)
 }
