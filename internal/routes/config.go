@@ -26,6 +26,7 @@ func (c *Config) Cors(next http.Handler) http.Handler { //https://pkg.go.dev/git
 	}).Handler(next)
 }
 
+// set timeout
 func (c *Config) SetTimeout(timeInSeconds int) *Config {
 	c.timeout = time.Duration(timeInSeconds) * time.Second
 	return c
