@@ -32,6 +32,7 @@ func (c *Config) SetTimeout(timeInSeconds int) *Config {
 	return c
 }
 
+// gettimeout
 func (c *Config) GetTimeout() time.Duration {
 	return c.timeout
 }
