@@ -6,6 +6,7 @@ import "os"
 func GetEnv(env, defaultValue string) string {
 	environment := os.Getenv(env)
 	if environment == "" {
+		//return default
 		return defaultValue
 	}
 	return environment
