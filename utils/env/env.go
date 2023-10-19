@@ -9,5 +9,6 @@ func GetEnv(env, defaultValue string) string {
 		//return default
 		return defaultValue
 	}
+	//return environment
 	return environment
 }
