@@ -5,6 +5,7 @@ import "log"
 //log panic
 func PANIC(message string, err error) {
 	if err != nil {
+		//return log panic
 		log.Panic(message, err)
 	}
 }
